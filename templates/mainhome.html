@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>EvitaAI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap" rel="stylesheet">   
+    <style>
+        body {
+            font-family: 'Cal Sans', sans-serif;
+            background-color: #bacce7;
+            margin: 0px;
+            display: flex;
+            justify-content: center; /* Centraliza horizontalmente */
+            align-items: center;     /* Centraliza verticalmente */
+            overflow-x: hidden
+        }
+
+        .topo-quadrado {
+            width: 100%;
+            height: 50px;
+            background-color: #3c4a58;
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgb(218, 224, 241);
+            font-family: 'Cal Sans', sans-serif;
+            font-size: 30px;
+            text-align: center;
+        }
+        
+        .estilo-h1 {
+            color: #494b53;
+            margin-top: 70px;
+            text-align: center;
+            font-size: 30px;
+        }
+
+        .imagem-redimensionada {
+            width: 60%;
+            height: auto; /* Mantém a proporção */
+            overflow-x: hidden
+            display: flex;
+            flex-direction: column;
+            margin-top:3%;
+        }
+
+        h1 {
+            color: #494b53;
+
+        }
+
+        button {
+            width: 30%;
+            height: 100px;
+            background-color: #58697a;
+            color: rgb(161, 183, 231);
+            border: none;
+            font-family: 'Cal Sans', sans-serif;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 50px;
+            
+        }
+
+        button:hover {
+            background-color: #9e95d3;
+            color:rgb(73, 68, 117); 
+        }
+        
+
+        .pagina {
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="topo-quadrado">E v i t a A I</div>
+
+    <div class="pagina">
+
+        <img id="LogoEscrita_EvitaAI_Azul_PNG" src="../static/img/LogoEscrita_EvitaAI_Azul_PNG.png" class="imagem-redimensionada">
+
+        <form action="/info">
+            <button type="submit">Iniciar</button>
+        </form>
+
+    </div>
+
+</body>
+</html>

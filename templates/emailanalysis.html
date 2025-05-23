@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>EvitaAI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap" rel="stylesheet">   
+    <style>
+
+        body {
+            font-family: 'Cal Sans', sans-serif;
+            background-color: #bacce7;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center; /* Centraliza horizontalmente */
+            align-items: center;     /* Centraliza verticalmente */
+            overflow-x: hidden
+        }
+
+        html {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* impede scroll horizontal */
+        }
+
+        .topo-quadrado {
+            width: 100%;
+            height: 50px;
+            background-color: #3c4a58;
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgb(218, 224, 241);
+            font-family: 'Cal Sans', sans-serif;
+            font-size: 30px;
+            text-align: center;
+        }
+
+        .filtro-input {
+            display: none;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        .estilo-h1 {
+            color: #494b53;
+            text-align: center;
+            font-size: 30px;
+        }
+
+        .mudada-h1 {
+            color: #dfe0ec;
+            text-align: center;
+            font-size: 50px;
+        }
+
+        .insiratexto-h1 {
+            color: #494b53;
+            text-align: center;
+            font-size: 54px;
+            margin-top: 80px;
+        }
+
+        .insiratexto-h2 {
+            color: #494b53;
+            text-align: center;
+            font-size: 40px;
+        }
+
+        input[type="text"] {
+            width: 50%;
+            padding: 20px;
+            border-radius: 30px;
+            border: 4px solid #6c6979;
+            color: #75798b;
+
+        }
+
+        .custom-date {
+            background-color: #f0f0f0;
+            border: 5px solid #ccc;
+            padding: 10px;
+            border-radius: 30px;
+            font-size: 16px;
+            color: #494b53;
+            font-family: 'Cal Sans', sans-serif;
+            border: 4px solid #6c6979;
+        }
+        .CUSTOMBUTTON {
+            width: 90%;
+            font-size: 30px;
+            background-color: #384653
+        }
+        .CUSTOMFONTFORBUTTON {
+            font-size: 15px;
+        }
+        .botaomodificadinho {
+            width: 30%;
+        }
+
+        .buttoneach {
+            height: auto;
+            width: auto;
+            background-color: #6a8399;
+            color: rgb(186, 205, 247);
+            border: none;
+            font-family: 'Cal Sans', sans-serif;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 22px;
+        }
+
+        button {
+            height: 100px;
+            background-color: #58697a;
+            color: rgb(161, 183, 231);
+            border: none;
+            font-family: 'Cal Sans', sans-serif;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 50px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        button:hover {
+            background-color: #8196ad;
+            color: #626e7c;
+        }
+
+        .div1,.div2,.div3 {
+
+            background-color: #3c4d7c;
+            color: white;
+            text-align: center;
+            border-radius: 40px;
+            font-family: 'Cal Sans', sans-serif;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+
+        }
+
+        .div4 {
+            color: white;
+            width: 100vw;
+            text-align: center;
+            font-family: 'Cal Sans', sans-serif;
+            padding: 10px 0;
+            margin-top: 100px 0 0 0;
+            background-color: {{coloracao}};
+        }
+
+        .texto1 {
+            font-size: 40px; /* tamanho do texto 1 */
+        }
+        .texto2 {
+            font-size: 20px; /* tamanho do texto 2 */
+        }
+
+        .container {
+            display: grid; /* Ativa o Grid */
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px; /* Espaçamento entre as divs */
+            margin-top: 30px; /* Dando espaçamento para as divs */
+            margin-right: 50px;
+            margin-left: 50px;
+            margin-bottom: 40px;
+        }
+
+        .container02 {
+            display: grid; /* Ativa o Grid */
+            grid-template-columns: 1fr 1fr;
+            margin-right: 35%;
+            margin-left: 35%;
+        }
+
+        .container03 {
+            display: grid; /* Ativa o Grid */
+            grid-template-columns: 1fr;
+        }
+
+        .conteudo {
+            flex: 1; /* Ocupa o espaço restante */
+            display: flex;
+            align-items: center;  /* Centraliza verticalmente */
+            justify-content: center; /* Centraliza horizontalmente */
+            padding: 20px;
+            margin-left: 30px;
+            margin-right: 30px;
+            color: #dfe0ec;
+            font-size: 30px;
+        }
+
+        .pagina {
+            margin-top: 100px;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+
+        }
+
+        .selectchange {
+            width: 50%;
+            margin-bottom:30px;
+            background-color: #bacce7;
+            border-radius: 30px;
+            font-size: 35px;
+            font-family: 'Cal Sans', sans-serif;
+            color: #494b53;
+            text-align: center;
+        }
+        .optionchange {
+            background-color: #bacce7;
+            border-radius: 30px;
+            text-align: center;
+            font-size: 25px;
+            font-family: 'Cal Sans', sans-serif;
+            color: #494b53;
+        }
+
+        ul {
+            color: #494b53;
+            text-align: center;
+            font-size: 25px;
+        }
+
+        .scroll-container {
+            height: 300px;  /* Altura limitada para ativar o scroll */
+            overflow-y: auto;  /* Scroll vertical */
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            font-family: 'Cal Sans', sans-serif;
+            background-color:#9db2cc;
+        }
+
+    </style>
+
+    <script>
+        function mostrarInput(valor) {
+            document.querySelectorAll('.filtro-input').forEach(div => div.style.display = 'none');
+            if (valor) {
+                document.getElementById('input-' + valor).style.display = 'block';
+            }
+        }
+    </script>
+
+</head>
+<body>
+
+    <div class="topo-quadrado">E  v  i  t  a  A  I</div>
+
+    <div class="pagina">
+
+        <div>
+            <h1 class="insiratexto-h1">Insira um Filtro de Pesquisa</h1> 
+            <form method="POST" action="{{ url_for('email') }}">
+                <select id="filtro" name="filtro" onchange="mostrarInput(this.value)" required class="selectchange">
+                    <option value="">Selecione</option>
+                    <option value="data">Data</option>
+                    <option value="autor">Autor</option>
+                </select>
+
+                <div id="input-data" class="filtro-input" style="display:none;">
+                    <input type="date" name="data" class="custom-date">
+                </div>
+
+                <div id="input-autor" class="filtro-input" style="display:none;">
+                    <input type="text" name="autor">
+                </div>
+                <br>
+                <button type="submit" class="botaomodificadinho">Submeter Filtro</button>
+            </form>
+
+            <div class="container02">
+                <form method="POST" action="{{ url_for('limpar') }}">
+                    <button type="submit" class="CUSTOMBUTTON">Limpar Filtros</button>
+                </form>
+                <form method="POST" action="{{ url_for('enviar') }}">
+                    <button type="submit" class="CUSTOMBUTTON">Procurar Filtros</button>
+                </form>
+            </div><br>
+
+            <div class="scroll-container">
+                {% for chaves in emails_totais %}
+                <form method="POST" action="{{ url_for('analisaremail') }}">
+                    <input type="hidden" name="email_especifico" value="{{ chaves }}">
+                    <input type="hidden" name="assunto_email_especifico" value="{{ chaves['assunto'] }}">
+                    <button type="submit" class="buttoneach">
+                        <strong>{{ chaves['assunto'] }}</strong><br>
+                        <span class="CUSTOMFONTFORBUTTON">{{ chaves['remetente'] }}</span>
+                    </button>
+                </form>
+                {% endfor %}
+            </div><br>
+        
+            <div class="div4">
+                <span class="texto1">{{ classificacao02 }}<br></span>
+                <span class="texto2">" 
+                    {% for chave, valor in filtros.items() %}
+                    <strong>{{ chave }}:</strong> {{ valor }}
+                    {% endfor %}
+                    "</span><br>
+                <span class="texto2">" {{ assuntoemail }} "</span>
+            </div>
+
+            <div class="container">
+                <div class="div1">
+                    <h1 class='mudada-h1'>Reputação do Site</h1>
+                    <p class="conteudo">{{ dominio02 | safe }}</p>
+                </div>
+                <div class="div2">
+                    <h1 class='mudada-h1'>Relatório de Análise</h1>
+                    <p class="conteudo">{{ justificativa02 | safe }}</p>
+                </div>
+                <div class="div3">
+                    <h1 class='mudada-h1'>Dicas de Segurança</h1>
+                    <p class="conteudo">{{ seguranca02 | safe }}</p>
+                </div>
+        </div>
+
+</body>
+</html>
