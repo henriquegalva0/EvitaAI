@@ -81,8 +81,11 @@ def site():
 def logingoogle():
     
     global servico_email
-    
+
     servico_email=login_email()
+
+    print(servico_email)
+    
     return redirect(url_for('email'))
 
 # ROTA DE ANÁLISE DE EMAIL
@@ -94,6 +97,8 @@ def email():
     if filtro_on == False:
         emails_totais=buscar_emails(servico_email)
 
+    print(emails_totais)
+    
     if quesito==True: 
         quesito=False
         return render_template("emailanalysis.html", filtros=session.get('filtros'),classificacao02=pytohtmllist02[0],dominio02=pytohtmllist02[1],justificativa02=pytohtmllist02[2],seguranca02=pytohtmllist02[3],coloracao=pytohtmllist02[5],assuntoemail=pytohtmllist02[6],emails_totais=emails_totais)
