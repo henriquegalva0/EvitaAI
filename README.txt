@@ -1,10 +1,13 @@
+# About us
 Hi! This is a group Project made by our team EvitaAI.
 The goal of the application is creating a virtual plataform for detecting phishing or malwares disguised in URLs or emails using AI. Our main plan is to make this democratic, so as we will present this to big enterprises in order to help people achieve their goals without worrying about data stealing.
 
+# Install Frameworks
 All the frameworks used in our project can be downloaded with pip
 
   pip install openai flask google-auth google-auth-oauthlib google-api-python-client
 
+# Files Missing
 There are 5 files we didn't publish here for security measures.
 
   # credentials.json
