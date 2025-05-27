@@ -59,7 +59,7 @@ def login_email():
 
 # 5. Função para ler e listar todos os emails na variável emails (virão como dicionários)
 def buscar_emails(servico):
-    results = servico.users().messages().list(userId='me', maxResults=10).execute() #lista duzentos emails recebidos
+    results = servico.users().messages().list(userId='me', maxResults=200).execute() #lista duzentos emails recebidos
     messages = results.get('messages', []) #pega as mensagens. Se não tiver nada, cria uma lista vazia
     emails = []
 
