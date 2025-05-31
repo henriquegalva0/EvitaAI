@@ -5,100 +5,290 @@
     <title>EvitaAI</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap" rel="stylesheet">   
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">   
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Cal Sans', sans-serif;
-            background-color: #bacce7;
-            margin: 0px;
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #ECEFF1 0%, #A7C5EB 50%, #A8D5BA 100%);
+            min-height: 100vh;
             display: flex;
-            justify-content: center; /* Centraliza horizontalmente */
-            align-items: center;     /* Centraliza verticalmente */
-            overflow-x: hidden
+            flex-direction: column;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Decorative background elements */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(168, 213, 186, 0.1) 0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(167, 197, 235, 0.1) 0%, transparent 50%);
+            animation: float 25s ease-in-out infinite reverse;
+            z-index: -1;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
         }
 
         .topo-quadrado {
             width: 100%;
-            height: 50px;
-            background-color: #3c4a58;
+            height: 60px;
+            background: linear-gradient(135deg, #2C3E50 0%, #5D737E 100%);
             position: fixed;
             top: 0;
             left: 0;
-
             display: flex;
             align-items: center;
             justify-content: center;
-            color: rgb(218, 224, 241);
-            font-family: 'Cal Sans', sans-serif;
-            font-size: 30px;
+            color: #FFFFFF;
+            font-family: 'Inter', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
             text-align: center;
+            box-shadow: 0 4px 20px rgba(44, 62, 80, 0.15);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            letter-spacing: 2px;
         }
-        
-        .estilo-h1 {
-            color: #494b53;
-            margin-top: 70px;
+        .pagina {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            font-size: 30px;
+            padding: 80px 20px 40px;
+            max-width: 600px;
+            margin: 0 auto;
+            width: 100%;
         }
 
         .imagem-redimensionada {
-            width: 60%;
-            height: auto; /* Mantém a proporção */
-            overflow-x: hidden
-            display: flex;
-            flex-direction: column;
-            margin-top:3%;
+            width: 350px;
+            height: auto;
+            margin: 0 auto 40px;
+            filter: drop-shadow(0 8px 24px rgba(44, 62, 80, 0.15));
+            transition: transform 0.3s ease;
         }
 
-        h1 {
-            color: #494b53;
+        .imagem-redimensionada:hover {
+            transform: scale(1.02);
+        }
 
+        .logo-title {
+            color: #2C3E50;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(44, 62, 80, 0.1);
+        }
+
+        .logo-subtitle {
+            color: #5D737E;
+            font-size: 18px;
+            font-weight: 400;
+            opacity: 0.9;
+            margin-bottom: 40px;
+        }
+
+        .button-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
         }
 
         button {
-            width: 30%;
-            height: 100px;
-            background-color: #58697a;
-            color: rgb(161, 183, 231);
+            width: 280px;
+            height: 64px;
+            background: linear-gradient(135deg, #2C3E50 0%, #5D737E 100%);
+            color: #FFFFFF;
             border: none;
-            font-family: 'Cal Sans', sans-serif;
-            border-radius: 50px;
+            font-family: 'Inter', sans-serif;
+            border-radius: 32px;
             cursor: pointer;
-            font-size: 50px;
-            
+            font-size: 18px;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 16px rgba(44, 62, 80, 0.2);
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 0.5px;
+        }
+
+        button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        button:hover::before {
+            left: 100%;
         }
 
         button:hover {
-            background-color: #9e95d3;
-            color:rgb(73, 68, 117); 
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(44, 62, 80, 0.3);
+            background: linear-gradient(135deg, #5D737E 0%, #2C3E50 100%);
         }
-        
 
-        .pagina {
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden
+        button:active {
+            transform: translateY(0);
+            box-shadow: 0 4px 16px rgba(44, 62, 80, 0.2);
+        }
+
+        /* Security badges */
+        .security-badges {
             display: flex;
-            flex-direction: column;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 24px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            color: #2C3E50;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .topo-quadrado {
+                font-size: 20px;
+                height: 56px;
+            }
+
+            .pagina {
+                padding: 70px 16px 32px;
+            }
+
+            .logo-container {
+                padding: 32px 24px;
+                margin-bottom: 24px;
+            }
+
+            .logo-title {
+                font-size: 32px;
+            }
+
+            button {
+                width: 100%;
+                max-width: 280px;
+                height: 56px;
+                font-size: 16px;
+            }
+
+            .security-badges {
+                margin-top: 20px;
+            }
+
+            .imagem-redimensionada {
+                width: 280px;
+            }
+            
+            .logo-title {
+                font-size: 32px;
+            }
+            
+            .logo-subtitle {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-container {
+                padding: 24px 16px;
+            }
+
+            .logo-title {
+                font-size: 24px;
+            }
+
+            .logo-subtitle {
+                font-size: 14px;
+            }
+
+            .imagem-redimensionada {
+                width: 240px;
+            }
+            
+            .logo-title {
+                font-size: 28px;
+            }
+            
+            .logo-subtitle {
+                font-size: 14px;
+            }
         }
     </style>
-
 </head>
 
 <body>
-
-    <div class="topo-quadrado">E v i t a A I</div>
+    <div class="topo-quadrado">EvitaAI</div>
 
     <div class="pagina">
-
         <img id="LogoEscrita_EvitaAI_Azul_PNG" src="../static/img/LogoEscrita_EvitaAI_Azul_PNG.png" class="imagem-redimensionada">
+    
+        <div class="logo-title">EvitaAI</div>
+        <div class="logo-subtitle">Proteção Inteligente e Confiável</div>
 
         <form action="/info">
-            <button type="submit">Iniciar</button>
+            <div class="button-container">
+                <button type="submit">Iniciar</button>
+            </div>
         </form>
 
+        <div class="security-badges">
+            <div class="badge">
+                <span>🔒</span>
+                <span>Seguro</span>
+            </div>
+            <div class="badge">
+                <span>⚡</span>
+                <span>Rápido</span>
+            </div>
+            <div class="badge">
+                <span>🤖</span>
+                <span>IA Avançada</span>
+            </div>
+        </div>
     </div>
-
 </body>
 </html>
